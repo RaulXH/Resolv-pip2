@@ -13,8 +13,3 @@ Un script simple que repara la libreria pip2 ( Python Package Index ), ya que es
 3)  ./ConfigPip2
 
 ```
-#  Compruebe instalando:
-```
-pip2 install wfuzz
-
-```
