@@ -13,3 +13,5 @@ Un script simple que repara la libreria pip2 ( Python Package Index ), ya que es
 3)  ./ConfigPip2
 
 ```
+#
+![Screenshot_20210314_234054_com termux](https://user-images.githubusercontent.com/77165035/111104455-c70d9000-851e-11eb-8056-a7e3ba409b0a.jpg)
