@@ -1,0 +1,173 @@
+#!/data/data/com.termux/files/usr/bin/bash -e 
+#
+#
+#
+# 	Programmer by [ Raul XH ]
+#	
+#
+#
+#
+#
+#
+#
+#	[ whoami ] ?
+#
+#
+#
+#
+#
+#	[ Create 14/03/2021 ]
+#
+#
+#
+#
+#
+#
+# 	Script created by RaulXH
+#
+#
+#
+# Colors
+#
+	RED="\e[0;50;31m"
+	YELOW="\e[0;50;33m"
+	AGUA="\e[0;50;36m"
+	GREEN="\e[0;50;32m"
+	GRIS="\e[0;50;90m"
+	WHITE="\e[2;50;37m"
+	FORT="\e[0m"
+#
+#
+#
+# Reading single variables
+#
+#
+declare -r URL="https://bootstrap.pypa.io/pip/2.7/get-pip.py"
+declare -r PYTHON="get-pip.py"
+declare -r BIN="$PREFIX/bin"
+declare -t TERMUX_MD5_GET=60e8267eb1b7bc71dc4843eb7bd294d3
+#
+#	OS Android Linux
+#
+until [[ $OSTYPE =~ ^linux-andr* ]]
+do
+	printf "\n${RED}[✘]${WHITE} ᴏɴʟʏ ғᴏʀ ᴛᴇʀᴍᴜx ${RED}[✘]${FORT}\n\n"
+	tput cnorm
+	exit 1
+done
+until [[ $UID -ne 0 ]]
+do
+	printf "\n${YELOW}[✘]${WHITE} ʀᴜɴ ᴡɪᴛʜᴏᴜᴛ ʀᴏᴏᴛ ${WHITE}[✘]${FORT}\n\n"
+	tput cnorm
+	exit 1 
+done
+
+#
+# function
+#
+# Progress [ Credit a R3mo777 ]
+#
+spin () {
+
+local pid=$!
+local delay=0.25
+local spinner=( '█■■■■' '■█■■■' '■■█■■' '■■■█■' '■■■■█' )
+
+while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
+
+for i in "${spinner[@]}"
+do
+	tput civis
+	echo -ne "\e[0;50;33m\r[\e[0;50;32m\e[0;50;33m] \e[0;50;37mDownloading please wait.................\e[33m\033[34m[\e[0;50;92m$i\033[34m]\033[0m   ";
+	sleep $delay
+	printf "\b\b\b\b\b\b\b\b";
+done
+done
+printf "   \b\b\b\b\b"
+tput cnorm
+printf "\e[0;50;33m [ \e[1;50;37mDone\e[0;50;33m ]${FORT}";
+echo "";
+}
+#
+#
+__ctrl_c()
+{
+	printf "\n${AGUA}[*] ${WHITE} %s ${AGUA}[*]${FORT}\n\n" "ᴄʟᴏsɪɴɢ ᴇxᴇᴄᴜᴛɪᴏɴ"
+	sleep 1
+	rm -rf $PYTHON
+	tput cnorm
+	exit 0
+}
+trap __ctrl_c INT
+#
+#
+#
+__Package()
+{
+	sleep 1
+	printf "\n${YELOW}| ${GREEN}ɪɴsᴛᴀʟʟɪɴɢ ᴘʏᴛʜᴏɴ2 ${YELOW}|${FORT}\n\n"
+	pkg update -y &>/dev/null && pkg upgrade -y &>/dev/null
+	pkg install python2 curl ncurses-utils  -y &>/dev/null
+	# Instalado
+	return 0
+}
+__PIP2()
+{
+	clear
+	tput civis
+	sleep 0.2
+	__Banner
+#
+# Download release
+#
+(curl -sSL --fail --retry 5 --retry-connrefused --retry-delay 5  $URL -o $PYTHON) &>/dev/null & spin 
+#
+# Verify weight
+#
+[[ ! $(md5sum $PYTHON | awk '{print $1}') = $TERMUX_MD5_GET ]] && printf "\n${WHITE}[${RED}${WHITE}] Download error [${RED}${WHITE}]${FORT}\n" && rm -rf $PYTHON  && tput cnorm && exit 1 
+#
+#
+	python2 $PYTHON
+	printf "\n${YELOW}[]${WHITE} %s ${YELOW}[]${FORT}\n\n" "ᴘɪᴘ2 ʟɪʙʀᴀʀʏ ғɪxᴇᴅ ᴄᴏʀʀᴇᴄᴛʟʏ!"
+	sleep 2
+	rm -rf $PYTHON
+	tput cnorm
+	exit 0
+}
+#
+#
+#
+[[ ! -a $BIN/python2 ]] || [[ ! -f $BIN/python2.7 ]]  && echo -e "\n${GRIS}[${GREEN}!${GRIS}]${WHITE} ᴘʏᴛʜᴏɴ ɴᴏᴛ ɪɴsᴛᴀʟʟᴇᴅ ${GRIS}[${GREEN}!${GRIS}]${WHITE}${FORT}" && __Package
+#
+[[ ! -a $BIN/curl ]] || [[ ! -a $BIN/tput ]] && __Package
+#
+#
+__Banner()
+{
+	local -r RED='\e[7;107;31m'
+	printf "${GREEN}
+ ___             
+(  _'\  _        
+| |_) )(_) _ _   
+| ,__/'| |( '_'\ 
+| |    | || (_) )
+(_)    (_)| ,__/
+          | |  2  
+	  (_)${FORT}${RED} ɪɴsᴛᴀʟʟᴇʀ ᴘɪᴘ2  ${FORT} 
+
+"
+}
+__PIP2
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#	[ Raul XH ]
+#
+#
+#
