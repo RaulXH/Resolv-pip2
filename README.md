@@ -12,4 +12,7 @@ Script programmed in bash.  To fix the *_pip2_* library for update problems.  Co
 
 ```
 #
-![Screenshot_20210314_234054_com termux](https://user-images.githubusercontent.com/77165035/111104455-c70d9000-851e-11eb-8056-a7e3ba409b0a.jpg)
+![Screenshot_20210517_160933_com termux](https://user-images.githubusercontent.com/77165035/118557173-6ec75a00-b72a-11eb-9548-0add94adf196.jpg)
+#
+![Screenshot_20210517_161006_com termux](https://user-images.githubusercontent.com/77165035/118557186-7555d180-b72a-11eb-8800-05c0312ca5dc.jpg)
+# see you
