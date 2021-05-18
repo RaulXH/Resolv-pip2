@@ -45,7 +45,7 @@
 declare -r URL="https://bootstrap.pypa.io/pip/2.7/get-pip.py"
 declare -r PYTHON="get-pip.py"
 declare -r BIN="$PREFIX/bin"
-declare -t TERMUX_MD5_GET=60e8267eb1b7bc71dc4843eb7bd294d3
+declare -r TERMUX_MD5_GET=60e8267eb1b7bc71dc4843eb7bd294d3
 #
 #	OS Android Linux
 #
