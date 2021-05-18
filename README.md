@@ -7,11 +7,11 @@ Script programmed in bash.  To fix the *_pip2_* library for update problems.  Co
 
 # Installation commands
 ```
-1) cd $HOME && git clone https://github.com/RaulXH/Resolv-pip2/
+cd $HOME && git clone https://github.com/RaulXH/Resolv-pip2/
 
-2) cd Resolv-pip2 && chmod +x Config-Pip2
+cd Resolv-pip2 && chmod +x Config-Pip2
 
-3)  ./Config-Pip2
+./Config-Pip2
 
 ```
 # view
