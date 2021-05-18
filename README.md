@@ -2,7 +2,7 @@
 
 Script programmed in bash.  To fix the *_pip2_* library for update problems.  Command automation
 
-![](https://img.shields.io/github/stars/RaulXH/Resolv-pip2) ![](https://img.shields.io/github/license/RaulXH/Resolv-pip2) ![](https://img.shields.io/badge/Pip2-Termux-red)
+![](https://img.shields.io/github/stars/RaulXH/Resolv-pip2?style=flat-square&logo=Github) ![](https://img.shields.io/github/license/RaulXH/Resolv-pip2?style=flat-square&logo=Github) ![](https://img.shields.io/badge/Pip2-Termux-red?style=flat-square&logo=Github)
 
 
 # Installation commands
